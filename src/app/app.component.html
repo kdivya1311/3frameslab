@@ -1,0 +1,30 @@
+<div>
+  <form class="card col-md-4 offset-md-4 mt-3 search-form">
+    <div class="card-body row no-gutters align-items-center search-field">
+        
+        <div class="col">
+            <input class="form-control no-border" type="search" name="searchEmail" placeholder="Search by email" [(ngModel)]="searchEmail">
+        </div>
+        
+        <div class="col-auto">
+            <button class="btn search-btn"  type="submit"><i class="fa fa-search search-icon"></i></button>
+        </div>
+        
+    </div>
+  </form>   
+
+  <mat-accordion class="card col-md-6 offset-md-3 mt-3">
+  
+  <mat-expansion-panel *ngFor="let info of list | emailFilter : searchEmail"  class="accordian-field" >
+    <mat-expansion-panel-header class="title">
+      <mat-panel-title>
+        {{info.email}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div>
+    <p>First Name: {{info.first_name}}</p>
+    <p>Last Name: {{info.last_name}}</p>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>     
+</div>
